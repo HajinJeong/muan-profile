@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>정영덕 | 무안군수 후보</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:       #0ea5c8;
+    --blue2:      #38bdf8;
+    --blue-pale:  #e0f6fd;
+    --gold:       #f59e42;
+    --dark:       #0c1e2a;
+    --gray:       #6b7280;
+    --light:      #f0fbff;
+    --white:      #ffffff;
+    --radius:     16px;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── 상단 고정 헤더 ── */
+  .top-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px;
+    height: 54px;
+  }
+  .top-bar .logo {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px; font-weight: 900;
+    color: var(--dark); letter-spacing: -0.5px;
+  }
+  .top-bar .logo span { color: var(--dark); }
+  .top-bar .num-badge {
+    background: var(--blue);
+    color: white; font-size: 10px; font-weight: 700;
+    padding: 4px 10px; border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── 섹션 공통 ── */
+  section { padding: 56px 20px; }
+  .section-tag {
+    display: inline-block;
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    color: var(--blue);
+    border-left: 3px solid var(--gold);
+    padding-left: 10px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  h2.sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 26px; font-weight: 900;
+    line-height: 1.25; letter-spacing: -0.5px;
+    margin-bottom: 28px;
+  }
+
+  /* ══════════════════
+     HERO
+  ══════════════════ */
+  .hero {
+    padding: 0;
+    min-height: 100svh;
+    background: linear-gradient(160deg, #0c2a38 0%, #0ea5c8 55%, #0a3a50 100%);
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-circle {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(56,189,248,0.4) 0%, transparent 65%);
+  }
+  .hero-bg-circle.c1 { width: 500px; height: 500px; top: -100px; right: -150px; }
+  .hero-bg-circle.c2 { width: 300px; height: 300px; bottom: 100px; left: -80px; opacity: 0.5; }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 54px 24px 48px;
+  }
+
+  /* 선거 태그 라인 */
+  .hero-election-tag {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 28px;
+  }
+  .hero-election-tag .tag-line {
+    width: 28px; height: 2px; background: var(--gold); border-radius: 2px;
+  }
+  .hero-election-tag span {
+    font-size: 11px; color: rgba(255,255,255,0.6);
+    letter-spacing: 3px; font-weight: 500;
+  }
+
+  /* 무안군수 크게 */
+  .hero-region-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .hero-region {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(28px, 7vw, 40px);
+    font-weight: 700; color: rgba(255,255,255,0.85);
+    letter-spacing: 6px;
+  }
+  .hero-region-sub {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    writing-mode: vertical-rl;
+    letter-spacing: 4px;
+  }
+
+  /* 기호 5번 강조 */
+  .hero-kihо {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+  }
+  .hero-kihо .k-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(64px, 18vw, 96px);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -4px;
+    text-shadow: 0 4px 24px rgba(245,158,66,0.4);
+  }
+  .hero-kihо .k-label {
+    display: flex; flex-direction: column;
+    justify-content: center;
+  }
+  .hero-kihо .k-label .k-top {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    letter-spacing: 3px; font-weight: 400;
+    margin-bottom: 2px;
+  }
+  .hero-kihо .k-label .k-bot {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 28px; font-weight: 900; color: white;
+    letter-spacing: 2px;
+  }
+
+  /* 이름 크게 */
+  .hero-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(60px, 17vw, 84px);
+    font-weight: 900; color: white;
+    line-height: 1; letter-spacing: -1px;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.2);
+  }
+  .hero-name em { color: white; font-style: normal; }
+
+  .hero-pos {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    letter-spacing: 4px; margin-bottom: 28px;
+  }
+  .hero-slogan {
+    background: rgba(255,255,255,0.08);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 19px; font-weight: 700; color: white;
+    line-height: 1.7;
+  }
+  .hero-scroll-hint {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 36px;
+    font-size: 11px; color: rgba(255,255,255,0.35);
+    letter-spacing: 2px;
+    animation: fadeUpDown 2s ease-in-out infinite;
+  }
+  .hero-scroll-hint::before {
+    content: '';
+    display: block; width: 1px; height: 32px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3));
+  }
+  @keyframes fadeUpDown {
+    0%,100%{opacity:0.4;transform:translateY(0)}
+    50%{opacity:0.9;transform:translateY(4px)}
+  }
+
+  /* ══════════════════
+     PROFILE
+  ══════════════════ */
+  .profile { background: var(--white); padding-top: 48px; padding-bottom: 48px; }
+  .avatar-card {
+    background: linear-gradient(135deg, var(--blue) 0%, #0a6e8a 100%);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .avatar-card::after {
+    content: '';
+    position: absolute; bottom: -40px; right: -40px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .avatar {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 3px solid rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .avatar-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 28px; font-weight: 900; color: white;
+    margin-bottom: 4px;
+  }
+  .avatar-role { font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 2px; }
+
+  .info-list { display: flex; flex-direction: column; gap: 1px; }
+  .info-item {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--light); border-radius: 12px;
+    padding: 16px; margin-bottom: 8px;
+  }
+  .info-item:last-child { margin-bottom: 0; }
+  .info-ico {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: var(--blue-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .info-item-label { font-size: 10px; color: var(--gray); letter-spacing: 1px; margin-bottom: 3px; }
+  .info-item-val { font-size: 15px; font-weight: 600; line-height: 1.4; }
+  .info-item-sub { font-size: 12px; color: var(--gray); margin-top: 1px; }
+
+  /* ══════════════════
+     PLEDGES
+  ══════════════════ */
+  .pledges { background: var(--light); }
+  .pledge-list { display: flex; flex-direction: column; gap: 14px; }
+  .pledge-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    display: flex; gap: 16px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    position: relative; overflow: hidden;
+  }
+  .pledge-card::before {
+    content: attr(data-num);
+    position: absolute; right: 16px; top: 12px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 48px; font-weight: 900;
+    color: rgba(14,165,200,0.06);
+    line-height: 1;
+  }
+  .pledge-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .pledge-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .pledge-card p { font-size: 13px; color: var(--gray); line-height: 1.75; }
+  .pledge-tag {
+    display: inline-block;
+    background: var(--blue-pale); color: var(--blue);
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    padding: 3px 8px; border-radius: 4px; margin-bottom: 6px;
+  }
+
+  /* ══════════════════
+     CAREER
+  ══════════════════ */
+  .career { background: var(--dark); }
+  .career .section-tag { color: var(--gold); }
+  .career h2.sec-title { color: white; }
+
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 2px; background: rgba(255,255,255,0.1);
+  }
+  .tl-item {
+    position: relative; margin-bottom: 32px;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: -21px; top: 4px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--blue2);
+    border: 2px solid var(--blue);
+    box-shadow: 0 0 0 4px rgba(56,189,248,0.2);
+  }
+  .tl-year {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    color: var(--gold); margin-bottom: 4px;
+  }
+  .tl-title {
+    font-size: 16px; font-weight: 700; color: white; margin-bottom: 4px;
+  }
+  .tl-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+  /* ══════════════════
+     MESSAGE
+  ══════════════════ */
+  .message-sec {
+    background: linear-gradient(150deg, #e0f6fd 0%, var(--white) 60%);
+    padding-bottom: 64px;
+  }
+  .quote-block {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 4px 24px rgba(26,79,160,0.07);
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .quote-block::before {
+    content: '\201C';
+    position: absolute; top: -12px; left: 20px;
+    font-size: 80px; line-height: 1;
+    color: var(--blue);
+    font-weight: 900;
+    opacity: 0.12;
+  }
+  .quote-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px; line-height: 2; color: var(--dark);
+  }
+  .quote-text strong { color: var(--blue); font-weight: 700; }
+  .sig {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--blue);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .sig-av {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0;
+  }
+  .sig-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px; font-weight: 900; color: white;
+  }
+  .sig-role { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 1px; margin-top: 2px; }
+
+  /* ══════════════════
+     CONTACT FOOTER
+  ══════════════════ */
+  .contact-footer {
+    background: var(--dark);
+    padding: 40px 20px 48px;
+  }
+  .contact-footer h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px; font-weight: 900;
+    color: white; margin-bottom: 20px;
+  }
+  .contact-grid { display: flex; flex-direction: column; gap: 10px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px; padding: 14px 16px;
+    text-decoration: none; color: white;
+  }
+  .contact-item .c-ico {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; flex-shrink: 0;
+  }
+  .contact-item .c-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 2px; }
+  .contact-item .c-val { font-size: 14px; font-weight: 500; }
+  .footer-copy {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 11px; color: rgba(255,255,255,0.2);
+    line-height: 1.8;
+  }
+
+  /* ── 스크롤 애니메이션 ── */
+  .fade-up {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up.d1 { transition-delay: 0.08s; }
+  .fade-up.d2 { transition-delay: 0.16s; }
+  .fade-up.d3 { transition-delay: 0.24s; }
+  .fade-up.d4 { transition-delay: 0.32s; }
+
+  /* ── 모바일 max 480px 미세 조정 ── */
+  @media (max-width: 360px) {
+    .hero-name { font-size: 52px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 상단 고정 바 -->
+<header class="top-bar">
+  <div class="logo">정<span>영덕</span></div>
+  <div class="num-badge">무안군수후보 무소속 기호5번</div>
+</header>
+
+<!-- ① HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-election-tag">
+      <div class="tag-line"></div>
+      <span>6.3 지방선거 · 무소속</span>
+    </div>
+
+    <div class="hero-region-wrap">
+      <div class="hero-region">무안군수</div>
+      <span class="hero-region-sub">후보</span>
+    </div>
+
+    <div class="hero-kihо">
+      <div class="k-num">5</div>
+      <div class="k-label">
+        <div class="k-top">기호</div>
+        <div class="k-bot">번</div>
+      </div>
+    </div>
+
+    <div class="hero-name">정영덕</div>
+    <div class="hero-pos">JEONG YEONG DEOK</div>
+    <div class="hero-slogan">
+      "답답한 산을 넘어, 확 트인 무안으로!"
+    </div>
+    <div class="hero-scroll-hint">스크롤하여 더 보기</div>
+  </div>
+</section>
+
+<!-- ② PROFILE -->
+<section class="profile" id="profile">
+  <div class="section-tag">후보자 소개</div>
+  <h2 class="sec-title">오직 무안, 오직 군민, 기호 5번</h2>
+
+  <div class="avatar-card fade-up">
+    <div class="avatar"><img src="정영덕.jpg" alt="정영덕 후보"></div>
+    <div class="avatar-name">정영덕</div>
+    <div class="avatar-role">무안군수 후보 · 기호 5번</div>
+  </div>
+
+  <div class="info-list">
+    <div class="info-item fade-up d1">
+      <div class="info-ico">🎂</div>
+      <div>
+        <div class="info-item-label">생년월일</div>
+        <div class="info-item-val">1963년 9월 3일 청계 출생</div>
+      </div>
+    </div>
+    <div class="info-item fade-up d2">
+      <div class="info-ico">💼</div>
+      <div>
+        <div class="info-item-label">경력</div>
+        <div class="info-item-val" style="line-height:1.9;">
+          · 現) 목포과학대학교 교수<br>
+          · 前) 제 9대, 10대 전라남도의회 도의원<br>
+          · 前) 전남도청 도시계획전문위원회<br>
+          · 前) 국립목포대학교 / 동신대학교 겸임 교수
+        </div>
+      </div>
+    </div>
+
+    <div class="info-item fade-up d3">
+      <div class="info-ico">🏫</div>
+      <div>
+        <div class="info-item-label">학력</div>
+        <div class="info-item-val" style="line-height:1.9;">
+          · 무안청계중학교 (5회)<br>
+          · 목포문태고등학교 (30회)<br>
+          · 목포대학교 지역개발학과<br>
+          · 초당대학교 사회복지학과<br>
+          · 조선대학교 대학원 건축공학과 박사
+        </div>
+      </div>
+    </div>
+
+    <div class="info-item fade-up d4">
+      <div class="info-ico">🏅</div>
+      <div>
+        <div class="info-item-label">수상 및 자격증</div>
+        <div class="info-item-val" style="line-height:1.9;">
+          · 국무총리 모범공무원<br>
+          · 건설교통부 장관상 (3회)<br>
+          · 지방의원 매니페스토 약속 대상<br>
+          · 도시계획기사1급<br>
+          · 사회복지사1급<br>
+          · 보육교사1급<br>
+          · 요양보호사
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ③ PLEDGES -->
+<section class="pledges" id="pledges">
+  <div class="section-tag">핵심 공약</div>
+  <h2 class="sec-title">오직 군민을 위한 약속</h2>
+
+  <div class="pledge-list">
+    <div class="pledge-card fade-up d1" data-num="01">
+      <div class="pledge-icon">✈️</div>
+      <div>
+        <div class="pledge-tag">지역상생</div>
+        <h3>무안공항 및 도청사 이전과 관련한 지역 상생 해법 마련</h3>
+        <p>무안공항 활성화와 도청사 이전을 기회로 삼아 지역 균형 발전과 주민 모두가 상생하는 해법을 마련하겠습니다.</p>
+      </div>
+    </div>
+    <div class="pledge-card fade-up d2" data-num="02">
+      <div class="pledge-icon">🌾</div>
+      <div>
+        <div class="pledge-tag">농업·민생</div>
+        <h3>양파·마늘 등 주요 농산물 가격 안정 대책 추진</h3>
+        <p>무안의 주요 농산물인 양파·마늘의 생산·유통 체계를 정비하여 농가 소득을 보호하고 가격 안정을 이루겠습니다.</p>
+      </div>
+    </div>
+    <div class="pledge-card fade-up d3" data-num="03">
+      <div class="pledge-icon">🏙️</div>
+      <div>
+        <div class="pledge-tag">도시계획</div>
+        <h3>도시계획 전문가 경험을 바탕으로 한 무안 백년대계 설계</h3>
+        <p>30년 도시계획 전문가로서의 경험을 살려 미래 세대를 위한 무안의 장기 발전 청사진을 설계하겠습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ MESSAGE -->
+<section class="message-sec" id="message">
+  <div class="section-tag">인사말</div>
+  <h2 class="sec-title">군민 여러분께</h2>
+
+  <div class="quote-block fade-up">
+    <p class="quote-text">
+      무안 군민 여러분 안녕하십니까.<br>
+      저 <strong>기호 5번 정영덕</strong>은 오직 무안, 오직 군민만 생각합니다.<br><br>
+      현재 무안은 공항 문제와 농산물 가격 폭락 등<br>
+      산적한 현안 속에서 군정의 대응이 미흡해 위기를 맞고 있습니다.<br><br>
+      검증된 행정력을 발판 삼아,<br>
+      대안을 세우고 미래를 설계하는 <strong>전문 행정가</strong>가 되겠습니다.<br><br>
+      무너진 군정을 바로 세우고<br>
+      <strong>발전된 무안</strong>을 군민들께 돌려드릴 것을 약속드립니다.
+    </p>
+  </div>
+
+</section>
+
+<!-- ⑥ CONTACT -->
+<footer class="contact-footer" id="contact" style="display:none;">
+  <h3>연락처</h3>
+  <div class="contact-grid">
+    <a class="contact-item" href="tel:0212345678">
+      <div class="c-ico">📞</div>
+      <div>
+        <div class="c-label">전화</div>
+        <div class="c-val">02-1234-5678</div>
+      </div>
+    </a>
+    <a class="contact-item" href="mailto:minjun@hangang2026.kr">
+      <div class="c-ico">✉️</div>
+      <div>
+        <div class="c-label">이메일</div>
+        <div class="c-val">minjun@hangang2026.kr</div>
+      </div>
+    </a>
+    <a class="contact-item" href="#">
+      <div class="c-ico">🌐</div>
+      <div>
+        <div class="c-label">홈페이지</div>
+        <div class="c-val">www.hangang2026.kr</div>
+      </div>
+    </a>
+    <a class="contact-item" href="#">
+      <div class="c-ico">📍</div>
+      <div>
+        <div class="c-label">선거사무소</div>
+        <div class="c-val">한강구 중앙대로 100번길 12</div>
+      </div>
+    </a>
+  </div>
+  <div class="footer-copy">
+    ⓒ 2026 김민준 선거사무소<br>
+    기호 2번 · 한강구청장 후보
+  </div>
+</footer>
+
+<script>
+  // 스크롤 등장 애니메이션
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
