@@ -14,7 +14,7 @@
     --gold:       #f59e42;
     --dark:       #0c1e2a;
     --gray:       #6b7280;
-    --light:      #f0fbff;
+    --light:      #daf3fc;
     --white:      #ffffff;
     --radius:     16px;
   }
@@ -79,7 +79,7 @@
   .hero {
     padding: 0;
     min-height: 100svh;
-    background: linear-gradient(160deg, #0c2a38 0%, #0ea5c8 55%, #0a3a50 100%);
+    background: linear-gradient(160deg, #1a6fa8 0%, #5ecfee 55%, #1a8db5 100%);
     display: flex; flex-direction: column;
     justify-content: flex-end;
     position: relative; overflow: hidden;
@@ -125,7 +125,7 @@
   .hero-region {
     font-family: 'Noto Serif KR', serif;
     font-size: clamp(28px, 7vw, 40px);
-    font-weight: 700; color: rgba(255,255,255,0.85);
+    font-weight: 700; color: #ffffff;
     letter-spacing: 6px;
   }
   .hero-region-sub {
@@ -212,7 +212,7 @@
   ══════════════════ */
   .profile { background: var(--white); padding-top: 48px; padding-bottom: 48px; }
   .avatar-card {
-    background: linear-gradient(135deg, var(--blue) 0%, #0a6e8a 100%);
+    background: linear-gradient(135deg, #38bdf8 0%, #0ea5c8 100%);
     border-radius: var(--radius);
     padding: 32px 24px;
     display: flex; flex-direction: column; align-items: center;
@@ -353,6 +353,14 @@
   .quote-block::before {
     content: '\201C';
     position: absolute; top: -12px; left: 20px;
+    font-size: 80px; line-height: 1;
+    color: var(--blue);
+    font-weight: 900;
+    opacity: 0.12;
+  }
+  .quote-block::after {
+    content: '\201D';
+    position: absolute; bottom: -36px; right: 20px;
     font-size: 80px; line-height: 1;
     color: var(--blue);
     font-weight: 900;
