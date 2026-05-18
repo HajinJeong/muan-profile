@@ -134,6 +134,7 @@
     color: rgba(255,255,255,0.55);
     writing-mode: vertical-rl;
     letter-spacing: 4px;
+    transform: translateY(-3px);
   }
 
   /* 기호 5번 강조 */
@@ -148,7 +149,11 @@
     color: var(--gold);
     line-height: 1;
     letter-spacing: -4px;
-    text-shadow: none;
+    text-shadow:
+      0 2px 0 #fff, 0 -2px 0 #fff,
+      2px 0 0 #fff, -2px 0 0 #fff,
+      1.5px 1.5px 0 #fff, -1.5px 1.5px 0 #fff,
+      1.5px -1.5px 0 #fff, -1.5px -1.5px 0 #fff;
   }
   .hero-kihо .k-label {
     display: flex; flex-direction: column;
